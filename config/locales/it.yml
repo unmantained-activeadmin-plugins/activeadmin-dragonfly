@@ -1,0 +1,7 @@
+it:
+  formtastic:
+    dragonfly:
+      no_image: "Nessuna immagine"
+      upload: "Upload"
+      url: "URL"
+      remove: "Rimuovi?"
