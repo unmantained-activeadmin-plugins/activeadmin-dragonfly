@@ -84,10 +84,12 @@ module Formtastic
       end
 
       def fragment_remove_html
-        template.content_tag(:label, for: fragment_id(:remove)) do
-          builder.check_box("remove_#{method}") <<
-          " ".html_safe <<
-          I18n.t("dragonfly.remove")
+        if object.send("#{method}_uid")
+          template.content_tag(:label, for: fragment_id(:remove)) do
+            builder.check_box("remove_#{method}") <<
+            " ".html_safe <<
+            I18n.t("dragonfly.remove")
+          end
         end
       end
 
