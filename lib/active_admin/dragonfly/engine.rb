@@ -18,7 +18,7 @@ module ActiveAdmin
         ]
       end
 
-      config.to_prepare do
+      initializer "register stylesheets" do
         ActiveAdmin.application.register_stylesheet "active_admin/active_admin_dragonfly.css", :media => :screen
       end
     end
