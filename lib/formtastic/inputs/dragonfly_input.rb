@@ -67,15 +67,21 @@ module Formtastic
       end
 
       def fragment_preview_html
-        preview_size = input_html_options[:preview_size] || "72x72#"
-        fragment_label_html(:preview) <<
-          if object.send("#{method}_uid")
-            original_url = object.send(method).url
+
+        preview = if object.send("#{method}_uid")
+          original_url = object.send(method).url
+          if object.send("#{method}_name").match /\.(png|gif|jpe?g)$/
+            preview_size = input_html_options[:preview_size] || "72x72#"
             preview_url = object.send(method).thumb(preview_size).url
             template.link_to(template.image_tag(preview_url), original_url)
           else
-            "<div class='no-image'>#{I18n.t("dragonfly.no_image")}</div>".html_safe
+            template.link_to object.send("#{method}_name"), original_url
           end
+        else
+          "<div class='no-image'>#{I18n.t("dragonfly.no_image")}</div>".html_safe
+        end
+
+        fragment_label_html(:preview) << preview
       end
 
       def fragment_url_html
