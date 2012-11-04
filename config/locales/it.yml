@@ -2,6 +2,7 @@ it:
   formtastic:
     dragonfly:
       no_image: "Nessuna immagine"
+      no_file: "Nessun file disponibile"
       upload: "Upload"
       url: "URL"
       remove: "Rimuovi?"
