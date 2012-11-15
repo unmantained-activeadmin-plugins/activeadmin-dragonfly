@@ -5,11 +5,38 @@
   .fragments
 
     &> legend
-      width: 20%
+      width: 11%
+      text-align: right
+
+      label
+        float: none
+        display: inline
 
     ol
       li
-        margin-bottom: 7px
+        margin-bottom: 10px
+        +clearfix
+
+        label
+          width: 100px
+          text-align: right
+          margin-right: 10px
+
+        &.component-remove
+          label
+            padding-left: 110px
+            width: auto
+            float: none
+            text-align: left
+
+        &.component-preview
+          &> a
+            float: left
+            display: block
+            padding: 5px
+            background: white
+            border: 1px solid #ccc
+            +border-radius(2px)
 
   .field-preview
     float: left
