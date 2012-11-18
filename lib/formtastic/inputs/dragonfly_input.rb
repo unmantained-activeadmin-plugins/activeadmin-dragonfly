@@ -90,7 +90,7 @@ module Formtastic
           name = name.blank? ? "Download" : name
           template.link_to name, original_url
         else
-          "<span class='no-file'>#{I18n.t("dragonfly.no_file")}</div>".html_safe
+          "<span class='no-file'>#{I18n.t("dragonfly.no_file")}</span>".html_safe
         end
         fragment_label_html(:download) << download
       end
