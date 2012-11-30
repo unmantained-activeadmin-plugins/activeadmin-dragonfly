@@ -1,29 +1,20 @@
 @import bourbon
 
 .input.dragonfly
+  padding: 0
 
   .fragments
 
     &> legend
-      width: 10%
-      padding-right: 1%
-      text-align: right
-
-      label
-        float: none
-        display: inline
+      display: none
 
     ol
-      width: 100% - 11%
 
       li
-        margin-bottom: 10px
         +clearfix
 
         label
-          width: 100px
           text-align: right
-          margin-right: 10px
 
         &.component-remove
           label
@@ -45,20 +36,6 @@
           &> input[type="text"]
             width: 50% !important
 
-  .field-preview
-    float: left
-    width: 72px
-    margin-right: 10px
-
+  .component-preview
     .no-image
-      text-align: center
-      height: 72px
-      display: table-cell
-      vertical-align: middle
-      color: #666
-      text-shadow: rgba(white, 0.6) 0 1px 0
-      font-size: 12px
-
-  .field-upload, .field-remove, .field-url
-    float: right
-    width: 500px - 72px - 10px
+      line-height: 32px

@@ -10,7 +10,7 @@ module Formtastic
             fragments_label <<
             template.content_tag(:ol) do
               components.map do |component|
-                template.content_tag(:li, class: "component-#{component}") do
+                template.content_tag(:li, class: "input component-#{component}") do
                   fragment_html(component)
                 end
               end.join.html_safe
