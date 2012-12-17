@@ -71,8 +71,8 @@ module Formtastic
         if image.present?
           if image.image?
             original_url = object.send(method).url
-            preview_size = input_html_options[:preview_size] || "72x72#"
-            preview_url = object.send(method).thumb(preview_size).url
+            preview_size = input_html_options[:preview_size] || [ 75, 75 ]
+            preview_url = object.send(method).thumb("#{preview_size.first}x#{preview_size.last}#").url
             fragment_label_html(:preview) << template.link_to(template.image_tag(preview_url), original_url)
           else
             fragment_download_html
