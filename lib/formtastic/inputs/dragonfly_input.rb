@@ -69,7 +69,8 @@ module Formtastic
       def fragment_preview_html
         image = object.send(method)
         if image.present?
-          if image.image?
+          is_image = image.image? rescue false
+          if is_image
             original_url = object.send(method).url
             preview_size = input_html_options[:preview_size] || [ 75, 75 ]
             preview_url = object.send(method).thumb("#{preview_size.first}x#{preview_size.last}#").url
