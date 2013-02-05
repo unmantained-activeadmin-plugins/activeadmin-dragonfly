@@ -66,11 +66,16 @@ module Formtastic
         builder.hidden_field("retained_#{method}")
       end
 
+      def is_image?(file)
+        ![:pdf].include?(file.format) && file.image?
+      rescue
+        nil
+      end
+
       def fragment_preview_html
-        image = object.send(method)
-        if image.present?
-          is_image = image.image? rescue false
-          if is_image
+        file = object.send(method)
+        if file.present?
+          if is_image?(file)
             original_url = object.send(method).url
             preview_size = input_html_options[:preview_size] || [ 75, 75 ]
             preview_url = object.send(method).thumb("#{preview_size.first}x#{preview_size.last}#").url
