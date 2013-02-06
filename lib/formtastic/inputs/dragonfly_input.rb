@@ -67,9 +67,7 @@ module Formtastic
       end
 
       def is_image?(file)
-        ![:pdf].include?(file.format) && file.image?
-      rescue
-        nil
+        file.mime_type =~ /png|bmp|gif|tif|jpe?g/
       end
 
       def fragment_preview_html
