@@ -68,6 +68,8 @@ module Formtastic
 
       def is_image?(file)
         file.mime_type =~ /png|bmp|gif|tif|jpe?g/
+      rescue Dragonfly::DataStorage::DataNotFound
+        false
       end
 
       def fragment_preview_html
