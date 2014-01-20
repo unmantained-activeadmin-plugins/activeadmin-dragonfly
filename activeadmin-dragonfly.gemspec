@@ -9,12 +9,13 @@ Gem::Specification.new do |s|
   s.version     = ActiveAdmin::Dragonfly::VERSION
   s.authors     = ["Stefano Verna"]
   s.email       = ["stefano.verna@gmail.com"]
-  s.homepage    = "http://github.com/cantierecreativo/railsyard-dragonfly"
+  s.homepage    = "http://github.com/cantierecreativo/activeadmin-dragonfly"
   s.summary     = "Adds a new :dragonfly field type to ActiveAdmin"
   s.description = "Adds a new :dragonfly field type to ActiveAdmin"
 
   s.files = Dir["{app,config,db,lib}/**/*"] + ["MIT-LICENSE", "Rakefile", "README.md"]
 
   s.add_dependency "activeadmin"
-  s.add_dependency "dragonfly"
+  s.add_dependency "dragonfly", "0.9.15"
 end
+
