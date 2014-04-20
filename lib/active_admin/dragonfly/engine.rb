@@ -6,7 +6,7 @@ module ActiveAdmin
     class Engine < ::Rails::Engine
       initializer "Railsyard precompile hook", group: :all do |app|
         # check if someone already initialized Dragonfly for Rails
-        unless ActiveRecord::Base.methods.include? :image_accessor
+        if ::Dragonfly::VERSION < "1" and not ActiveRecord::Base.methods.include? :image_accessor
           require 'dragonfly/rails/images'
         end
 
