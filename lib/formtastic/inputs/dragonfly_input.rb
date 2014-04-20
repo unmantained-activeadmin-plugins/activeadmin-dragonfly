@@ -52,7 +52,7 @@ module Formtastic
         if labels_from_options.key?(fragment)
           labels_from_options[fragment]
         else
-          ::I18n.t(fragment.to_s, :default => fragment.to_s.humanize, :scope => [:dragonfly])
+          t(fragment.to_s, :default => fragment.to_s.humanize)
         end
       end
 
@@ -84,7 +84,7 @@ module Formtastic
             fragment_download_html
           end
         else
-          fragment_label_html(:preview) << "<div class='no-image'>#{I18n.t("dragonfly.no_image")}</div>".html_safe
+          fragment_label_html(:preview) << "<div class='no-image'>#{t(:no_image)}</div>".html_safe
         end
       end
 
@@ -96,7 +96,7 @@ module Formtastic
           name = name.blank? ? "Download" : name
           template.link_to name, original_url
         else
-          "<span class='no-file'>#{I18n.t("dragonfly.no_file")}</span>".html_safe
+          "<span class='no-file'>#{t(:no_file)}</span>".html_safe
         end
         fragment_label_html(:download) << download
       end
@@ -111,9 +111,15 @@ module Formtastic
           template.content_tag(:label, for: fragment_id(:remove)) do
             builder.check_box("remove_#{method}") <<
             " ".html_safe <<
-            I18n.t("dragonfly.remove")
+            t(:remove)
           end
         end
+      end
+
+      private
+
+      def t(key, options = {})
+        ::I18n.t key, options.reverse_merge(:scope => [:formtastic, :dragonfly])
       end
 
     end
