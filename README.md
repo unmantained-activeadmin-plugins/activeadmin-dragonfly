@@ -1,3 +1,9 @@
+# activeadmin-dragonfly
+
+### :warning: Unmaintained :warning:
+
+Sorry, but I no longer work on ActiveAdmin often enough to justify mantaining this gem. Take it as it is. If you are interested to update and maintain the gem, please let me know! :heart:
+
 ### Gemfile
 
 ```ruby
