@@ -68,7 +68,7 @@ module Formtastic
 
       def is_image?(file)
         file.mime_type =~ /png|bmp|gif|tif|jpe?g/
-      rescue Dragonfly::DataStorage::DataNotFound
+      rescue Dragonfly::Job::Fetch::NotFound
         false
       end
 
